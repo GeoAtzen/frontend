@@ -1,2 +1,2 @@
 # frontend
-Frontend
+Frontend-Repository des GeoAtzenn Projekts
