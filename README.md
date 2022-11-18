@@ -13,7 +13,7 @@ $ npm start <br>
 <br>
 Die Website ist dann erreichbar unter:<br>
 http://localhost:3000/
-
+<br>
 Docker: <br>
 Wenn Sie Docker installiert haben, ist es möglich über den simplen Befehl <br>
 $ docker-compose up
