@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  h1 Anwendungsseite
+  p Auf dieser Seite können Sie mithilfe der gegebenen Schritte die volle Funktionalität dieser Anwendung ausschöpfen
+
+  .row.justify-content-md-left
+        .col-lg-6.col-xs-12.mb-3
+            .card.text-dark.p-4.border-success.cardanwendungsmap
+              #anwendungsmap
+
+        .col-lg-6.col-xs-12.mb-3
+            .card.text-dark.p-4.border-success.cardanwendungsseite
+              h3 Durchführungsschritte
+              p 1. Zeichnen Sie links auf der Karte mit dem Leaflet Draw Plugin einen Bereich mit welchem Sie arbeiten möchten als Rechteck
+              p 2. Datenupload: Laden Sie ihre Daten welche zur Durchführung benötigt werden hoch! Hier bitte entweder 2.1 ODER 2.2
+              a   2.1 Trainingsdaten
+              input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
+              a   2.2 trainiertes Modell
+              input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')   
+              a   2.2 Sentinel 2 Bilddatei
+              input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
+              p 3. Auswahl Bänder Sentinel2
+              .dropdown
+                  button.btn.btndropdown.btn-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+                    | Bänder Selektion
+                  ul.dropdown-menu
+                    li
+                      .checkbox
+                          label
+                            input(type='checkbox')
+                            | B01
+                    li
+                      .checkbox
+                          label
+                            input(type='checkbox')
+                            | B02
+                    li
+                      .checkbox
+                          label
+                            input(type='checkbox')
+                            | B03
+                    ul
+    
+              p 4. Auflösung einstellen 
+                .dropdown
+                  button.btn.btn-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+                    | Auflösungen
+                  ul.dropdown-menu
+                    li
+                      .checkbox
+                          label
+                            input(type='checkbox')
+                            | 10 Meter
+                    li
+                      .checkbox
+                          label
+                            input(type='checkbox')
+                            | 20 Meter
+                    li
+                      .checkbox
+                          label
+                            input(type='checkbox')
+                            | 30 Meter
+                    ul
+              p 5. Ausführen des Trainings, der Prediction, AOA und der Berechnung der empfohlenen Gebiete zum nachtrainieren 
+              button.btn.btn-success(type='submit') Ausführen
+          
+
+
+
+
+
+  block scripts 
+    script(src="/javascripts/application.js")

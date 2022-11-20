@@ -1,0 +1,94 @@
+body {
+    background-color: rgb(221, 220, 220);
+    padding: 50px;
+    font-family: Gill Sans Extrabold, sans-serif;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-family: Gill Sans Extrabold, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    color: rgb(0, 0, 0);
+    font-family: Gill Sans Extrabold, sans-serif;
+    text-align: center;
+}
+
+h3 {
+    color: rgb(0, 0, 0);
+    font-family: Gill Sans Extrabold, sans-serif;
+    text-align: center;
+}
+
+h4 {
+    color: rgb(0, 0, 0);
+    font-family: Gill Sans Extrabold, sans-serif;
+    text-align: center;
+}
+
+p {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: Gill Sans Extrabold, sans-serif;
+}
+
+#anwendungsmap {
+    height: 850px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ergebnismap {
+    height: 850px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    width: 100%;
+}
+
+.cardprediction {
+    width: 100%;
+}
+
+.cardmap {
+    height: 100%;
+    width: 125%;
+}
+
+.cardanwendungsmap {
+    height: 75%;
+    width: 125%;
+}
+
+.cardmenu {
+    height: 100%;
+    width: 75%;
+    margin-left: auto;
+}
+
+.cardanwendungsseite {
+    width: 75%;
+    height: 75%;
+    margin-left: auto;
+}
+
+.btndownload {
+    height: 30px;
+    width: 10%;
+}
+
+.btnupload {
+    height: 100px;
+    width: 50%;
+}
+
+.cardimpress {
+    text-align: center;
+    
+}

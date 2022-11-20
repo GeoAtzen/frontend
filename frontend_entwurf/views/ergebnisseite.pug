@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  h1 Ergebnisseite
+  p Auf dieser Seite werden die fertigen Ergebnisse angezeigt
+  .row.justify-content-md-left
+        .col-lg-6.col-xs-12.mb-3
+            .card.text-dark.p-4.border-success.cardmap
+              #ergebnismap
+        .col-lg-6.col-xs-12.mb-3
+            .card.text-dark.p-4.border-success.cardmenu
+              h2 Layer
+              p Wählen Sie die Layer, welche Sie angezeigt bekommen wollen mithilfe der Checkboxen aus
+                .card.text-dark.p-4.border-success.cardprediction
+                  input.form-check-input#checkboxNoLabel(type="checkbox", aria-label="...")
+                  h4 Prediction
+                  p Legende:
+                br
+                .card.text-dark.p-4.border-success.cardprediction
+                  input.form-check-input#checkboxNoLabel(type="checkbox", aria-label="...")
+                  h4 AOA
+                br
+                .card.text-dark.p-4.border-success.cardprediction
+                  Input.form-check-input#checkboxNoLabel(type="checkbox", aria-label="...")
+                  h4 Trainingsgebiete
+                br
+                .card.text-dark.p-4.border-success.cardprediction
+                  input.form-check-input#checkboxNoLabel(type="checkbox", aria-label="...")
+                  h4 empfohlenen Gebiete zum nachtrainieren
+                      
+                br
+                .card.text-dark.p-4.border-success.cardprediction
+                  input.form-check-input#checkboxNoLabel(type="checkbox", aria-label="...")
+                  h4 Sentinel 2 Satelliten Bild
+                br
+                br
+                p Herunterladen aller Daten als .zip:
+                a.i.fa.fa-download.btn.btndownload.btn-success(role='button', href='http://localhost:3000/ergebnisseite/Daten', download='')
+                    
+
+  script(src="/javascripts/results.js")
