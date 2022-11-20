@@ -2,32 +2,36 @@ extends layout
 
 block content
     br
-    h1 GeoAtzen
+    h1 
+        b GeoAtzen
     .row.justify-content-md-center
         .col-lg-6.col-xs-12.mb-3
             .card.text-dark.p-4.border-success.card
                     
-                    p Dies ist unsere WebApp ...
+                    p(align='center', style='font-family: Verdana, sans-serif;')
+                        b Willkommen auf der Webseite der GeoAtzen.
                     br
-                    p Mit der Navigationsleiste ist es möglich zwischen den Seiten zu wechseln
-                    br
-    h2 Erklärung:
+                    p(align='center', style='font-family: Verdana, sans-serif;')
+                        b Benutzen Sie die Navigationsleiste oben um zwischen den verschiedenen Seiten zu wechseln.
+    br
+    br                
     .row.justify-content-md-center
         .col-lg-6.col-xs-12.mb-3
             .card.text-dark.p-4.border-success.card
-                br
-                h3 Erklärung
-                p WebApp zur dürchführung einer AOA und aller dafür benötigen Schritte
+                h3
+                    b Erläuterung der Webseite
+                p(align='center', style='font-family: Verdana, sans-serif;') Diese Webseite bietet eine Plattform, um die Durchführung einer Area of Applicability (kurz AOA) zu ermöglichen. Diese löst das Problem, dass Machine-Learning-Algorithmen für Geodaten nur für Datensätze angewandt werden können, die ähnlich zu denen sind, die zum Trainieren der Algorithmen verwendet wurden. Um diese Machine-Learning-Algorithmen jedoch auch zuverlässig für andere Datensätze anzuwenden, definiert die AOA mithilfe des „dissimilarity index“ die Qualität des vom Algorithmus errechneten Modells für alle Bereiche, um die Bereiche, in denen es gut oder nicht so gut angewandt werden kann, zu finden. Nach Berechnung der AOA und der damit einhergehenden Bewertung der Bereiche werden weitere Trainingspunkte vorgschlagen, an denen das Modell noch trainiert werden muss, um eine flächendeckend gute Area of Applicability und damit eine verbesserte Richtigkeit des Modells herzustellen. Im Endeffekt kann man also durch das Konzept der „Area of Applicability“ Modelle von Machine-Learning-Algorithmen für neue Zielgebiete bewerten nur bedingt kompatible Modelle durch dessen Funktionsweise verbessern, um sie einzusetzen.
         
-        .col-lg-6.col-xs-12.mb-3
-            .card.text-dark.p-4.border-success.card
-                h3 Anwenundungsseite
-                p Durchführung der Prediction, AOA, des trainieren des Algortihmus und der Bereiche, wo weitere Trainingsdaten erhoben werden müssen
-                br
-                br
     .row.justify-content-md-center
         .col-lg-6.col-xs-12.mb-3
             .card.text-dark.p-4.border-success.card
-                h3 Ergebnisseite
-                p Hier werden die Fertigen Ergebniss angezeigt. Der Anwendenen Person ist es hier möglich, sich die einzelnen Dateien einzeln nach Auswahl anzeigen zu lassen
+                h3 
+                    b Anwendungsseite
+                p(align='center', style='font-family: Verdana, sans-serif;') Auf der Anwendungsseite finden Sie einen Bereich zum Datenupload. Außerdem können Sie hier verschiedene Parameter einstellen und schließlich die Durchführung der AOA-Berechnung, das trainieren des Algortihmus und das Anzeigen der Bereiche, in denen weitere Trainingsdaten erhoben werden müssen, starten.
+    .row.justify-content-md-center
+        .col-lg-6.col-xs-12.mb-3
+            .card.text-dark.p-4.border-success.card
+                h3 
+                    b Ergebnisseite
+                p Auf der Ergebnisseite werden die Ergebnisse der auf der Anwendungsseite berechneten Daten angezeigt. Ihnen ist es hier möglich, sich die Dateien einzeln anzeigen zu lassen oder diese zu downloaden.
         
