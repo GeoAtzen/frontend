@@ -31,7 +31,8 @@ h4 {
 p {
     color: rgb(0, 0, 0);
     font-size: 18px;
-    font-family: Gill Sans Extrabold, sans-serif;
+    font-family: Verdana, sans-serif;
+    text-align: center;
 }
 
 #anwendungsmap {
