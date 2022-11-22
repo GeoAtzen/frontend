@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1 Anwendungsseite
-  p Auf dieser Seite können Sie mithilfe der gegebenen Schritte die volle Funktionalität dieser Anwendung ausschöpfen
+  p Auf der Anwendungsseite finden Sie einen Bereich zum Datenupload. Sie können entweder Trainingsdaten, ein trainiertes Modell oder eine Sentinel 2 Bilddatei hochladen. Außerdem können Sie hier verschiedene Parameter einstellen und schließlich die Durchführung der AOA-Berechnung, das Trainieren des Algortihmus und das Anzeigen der Bereiche, in denen weitere Trainingsdaten erhoben werden müssen, starten.
 
   .row.justify-content-md-left
         .col-lg-6.col-xs-12.mb-3
@@ -12,15 +12,15 @@ block content
         .col-lg-6.col-xs-12.mb-3
             .card.text-dark.p-4.border-success.cardanwendungsseite
               h3 Durchführungsschritte
-              p 1. Zeichnen Sie links auf der Karte mit dem Leaflet Draw Plugin einen Bereich mit welchem Sie arbeiten möchten als Rechteck
-              p 2. Datenupload: Laden Sie ihre Daten welche zur Durchführung benötigt werden hoch! Hier bitte entweder 2.1 ODER 2.2
+              p 1. Zeichnen Sie links auf der Karte mit dem Leaflet Draw Plugin einen rechteckigen Bereich, mit welchem Sie arbeiten möchten.
+              p 2. Datenupload: Laden Sie Ihre Daten, welche zur Durchführung benötigt werden hoch! Hier bitte entweder 2.1 ODER 2.2 hochladen.
               a   2.1 Trainingsdaten
               input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
               a   2.2 trainiertes Modell
               input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')   
               a   2.2 Sentinel 2 Bilddatei
               input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
-              p 3. Auswahl Bänder Sentinel2
+              p 3. Auswahl der Sentinel 2 Bänder
               .dropdown
                   button.btn.btndropdown.btn-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
                     | Bänder Selektion
@@ -63,7 +63,7 @@ block content
                             input(type='checkbox')
                             | 30 Meter
                     ul
-              p 5. Ausführen des Trainings, der Prediction, AOA und der Berechnung der empfohlenen Gebiete zum nachtrainieren 
+              p 5. Beim Klicken des Ausführen Buttons wird das Training, die Prediction, die AOA und die Ermittlung der empfolenen Gebiete, welche nachtrainiert werden müssen, ausgeführt. 
               button.btn.btn-success(type='submit') Ausführen
           
 
