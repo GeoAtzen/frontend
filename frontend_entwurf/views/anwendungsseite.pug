@@ -13,36 +13,15 @@ block content
             .card.text-dark.p-4.border-success.cardanwendungsseite
               h3 Durchführungsschritte
               p 1. Zeichnen Sie links auf der Karte mit dem Leaflet Draw Plugin einen rechteckigen Bereich, mit welchem Sie arbeiten möchten.
-              p 2. Datenupload: Laden Sie Ihre Daten, welche zur Durchführung benötigt werden hoch! Hier bitte entweder 2.1 ODER 2.2 hochladen.
-              a   2.1 Trainingsdaten
+              p 2. Datenupload: Laden Sie Ihre Daten, welche zur Durchführung benötigt werden hoch! Hier bitte entweder 2.2 ODER 2.3 hochladen.
+              a   2.1 Sentinel 2 Bilddatei
               input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
-              a   2.2 trainiertes Modell
+              a   2.2 Trainingsdaten
               input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')   
-              a   2.2 Sentinel 2 Bilddatei
+              a   2.3 trainiertes Modell
               input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
-              p 3. Auswahl der Sentinel 2 Bänder
-              .dropdown
-                  button.btn.btndropdown.btn-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
-                    | Bänder Selektion
-                  ul.dropdown-menu
-                    li
-                      .checkbox
-                          label
-                            input(type='checkbox')
-                            | B01
-                    li
-                      .checkbox
-                          label
-                            input(type='checkbox')
-                            | B02
-                    li
-                      .checkbox
-                          label
-                            input(type='checkbox')
-                            | B03
-                    ul
-    
-              p 4. Wählen Sie eine Auflösung
+              
+              p 3. Wählen Sie eine Auflösung
                 .dropdown
                   button.btn.btndropdown.btn-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
                     | Auflösung
@@ -59,13 +38,9 @@ block content
                       input#flexRadioDefault30m.form-check-input(type='radio', name='flexRadioDefault')
                       label.form-check-label(for='flexRadioDefault20m')
                         | 30 Meter
-              p 5. Beim Klicken des Ausführen Buttons wird das Training, die Prediction, die AOA und die Ermittlung der empfolenen Gebiete, welche nachtrainiert werden müssen, ausgeführt. 
+              p 4. Beim Klicken des Ausführen Buttons wird das Training, die Prediction, die AOA und die Ermittlung der empfolenen Gebiete, welche nachtrainiert werden müssen, ausgeführt. 
               button.btn.btn-success(type='submit') Ausführen
           
-
-
-
-
 
   block scripts 
     script(src="/javascripts/application.js")
