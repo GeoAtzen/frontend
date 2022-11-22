@@ -42,27 +42,23 @@ block content
                             | B03
                     ul
     
-              p 4. Auflösung einstellen 
+              p 4. Wählen Sie eine Auflösung
                 .dropdown
-                  button.btn.btn-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
-                    | Auflösungen
-                  ul.dropdown-menu
-                    li
-                      .checkbox
-                          label
-                            input(type='checkbox')
-                            | 10 Meter
-                    li
-                      .checkbox
-                          label
-                            input(type='checkbox')
-                            | 20 Meter
-                    li
-                      .checkbox
-                          label
-                            input(type='checkbox')
-                            | 30 Meter
-                    ul
+                  button.btn.btndropdown.btn-success.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+                    | Auflösung
+                  .dropdown-menu
+                    .form-check
+                      input#flexRadioDefault10m.form-check-input(type='radio', name='flexRadioDefault')
+                      label.form-check-label(for='flexRadioDefault10m')
+                        | 10 Meter
+                    .form-check
+                      input#flexRadioDefault20m.form-check-input(type='radio', name='flexRadioDefault')
+                      label.form-check-label(for='flexRadioDefault20m')
+                        | 20 Meter
+                    .form-check
+                      input#flexRadioDefault30m.form-check-input(type='radio', name='flexRadioDefault')
+                      label.form-check-label(for='flexRadioDefault20m')
+                        | 30 Meter
               p 5. Beim Klicken des Ausführen Buttons wird das Training, die Prediction, die AOA und die Ermittlung der empfolenen Gebiete, welche nachtrainiert werden müssen, ausgeführt. 
               button.btn.btn-success(type='submit') Ausführen
           
