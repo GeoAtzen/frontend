@@ -4,6 +4,11 @@ body {
     font-family: Gill Sans Extrabold, sans-serif;
 }
 
+.alternative-colors-mode {
+    background-color: rgb(130, 129, 129);
+    color: white;
+  }
+
 h1 {
     color: rgb(0, 0, 0);
     font-family: Gill Sans Extrabold, sans-serif;
@@ -93,3 +98,20 @@ p {
     text-align: center;
     
 }
+
+.btnFarbenblind {
+    height: 30px;
+    width: 15%;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* dunkles Farbschema für die Nacht */
+    body {
+      color: white;
+      background: black;
+    }
+  
+    a {
+      color: skyblue;
+    }
+  }

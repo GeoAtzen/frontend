@@ -49,11 +49,11 @@ html
                   a.nav-link(aria-current='page' href='/ergebnisseite') Ergebnisseite
                 li.nav-item
                   a.nav-link(aria-current='page' href='/Impressum' target='_blank') Impressum
-
+    button(type='button' class='btnFarbenblind' id='modusFuerFarbenblinde' onclick='modusFuerFarbenblinde()') Modus für Farbenblindheit
     block content
-    
     //  Copyright 
     .footer-copyright.text-center.py-3.card-footer(style="color:#000000").
         © 2022 Copyright: GeoAtzen
-
+block scripts 
+    script(src="/javascripts/application.js")
 
