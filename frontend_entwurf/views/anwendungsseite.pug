@@ -15,11 +15,17 @@ block content
               p 1. Zeichnen Sie links auf der Karte mit dem Leaflet Draw Plugin einen rechteckigen Bereich, mit welchem Sie arbeiten möchten.
               p 2. Datenupload: Laden Sie Ihre Daten, welche zur Durchführung benötigt werden hoch! Hier bitte entweder 2.2 ODER 2.3 hochladen.
               a   2.1 Sentinel 2 Bilddatei
-              input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
+              form(method='post', enctype='multipart/form-data', action='/uploadsentinel')
+                input(type='file', name='file')
+                input(type='submit', value='Submit')
               a   2.2 Trainingsdaten
-              input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')   
+              form(method='post', enctype='multipart/form-data', action='/uploadtrain')
+                input(type='file', name='file')
+                input(type='submit', value='Submit')
               a   2.3 trainiertes Modell
-              input.i.fa.fa-upload(aria-hidden='true').btn.btnupload.btn-success#uploadtrain(type='file')  
+              form(method='post', enctype='multipart/form-data', action='/uploadmodel')
+                input(type='file', name='file')
+                input(type='submit', value='Submit')
               
               p 3. Wählen Sie eine Auflösung
                 .dropdown
