@@ -4,10 +4,10 @@ body {
     font-family: Gill Sans Extrabold, sans-serif;
 }
 
-.alternative-colors-mode {
-    background-color: rgb(130, 129, 129);
-    color: white;
-  }
+.navbar {
+    font-size: 22px;
+    padding: 10px;
+}
 
 h1 {
     color: rgb(0, 0, 0);
@@ -99,10 +99,6 @@ p {
     
 }
 
-.btnFarbenblind {
-    height: 30px;
-    width: 15%;
-}
 
 @media (prefers-color-scheme: dark) {
     /* dunkles Farbschema für die Nacht */

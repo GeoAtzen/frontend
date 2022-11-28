@@ -46,9 +46,3 @@ map.on("draw:deleted", function (e) {
   map.addControl(drawControl);
 });
 })
-
-function modusFuerFarbenblinde() {
-  console.log("es funktioniert")
-  var element = document.body;
-  element.classList.toggle("alternative-colors-mode");
-}
