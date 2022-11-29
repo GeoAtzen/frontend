@@ -1,9 +1,5 @@
 var lang = document.getElementById("long");
 var breit = document.getElementById("lat");
-let upload = document.getElementById("upload")
-let textarea = document.getElementById('textarea');
-
-
 
 // erstellen einer leaflet Karte mit Europa als Startpunkt und mit OSM als Basiskarte
 var map = L.map("anwendungsmap").setView([51.96, 7.6], 12);
