@@ -114,7 +114,7 @@ app.post(
 
 var startRouter = require("./routes/start");
 app.use("/", startRouter);
-var ergebnisseiteRouter = require("./routes/ergebnisseite");
+//var ergebnisseiteRouter = require("../ergebnisseite");
 var anwendungsseiteRouter = require("./routes/anwendungsseite");
 var impressumRouter = require("./routes/impressum");
 
@@ -130,8 +130,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 
-
-app.use("/ergebnisseite", ergebnisseiteRouter);
+//app.use("/ergebnisseite", ergebnisseiteRouter);
 app.use("/anwendungsseite", anwendungsseiteRouter);
 app.use("/impressum", impressumRouter);
 
