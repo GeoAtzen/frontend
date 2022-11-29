@@ -45,7 +45,8 @@ block content
                       label.form-check-label(for='flexRadioDefault20m')
                         | 30 Meter
               p 4. Beim Klicken des Ausführen Buttons wird das Training, die Prediction, die AOA und die Ermittlung der empfolenen Gebiete, welche nachtrainiert werden müssen, ausgeführt. 
-              button.btn.btn-success(type='submit') Ausführen
+              form(method='post', action='/anwendungsseite/ergebnisseite')
+                button.btn.btn-success() Ausführen
           
 
   block scripts 
