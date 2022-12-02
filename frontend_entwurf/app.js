@@ -115,9 +115,10 @@ app.post(
 var startRouter = require("./routes/start");
 app.use("/", startRouter);
 //var ergebnisseiteRouter = require("../ergebnisseite");
+//var filesRouter = require("./routes/files");
 var anwendungsseiteRouter = require("./routes/anwendungsseite");
 var impressumRouter = require("./routes/impressum");
-var filesRouter = require("./routes/files");
+
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -133,7 +134,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //app.use("/ergebnisseite", ergebnisseiteRouter);
 app.use("/anwendungsseite", anwendungsseiteRouter);
 app.use("/impressum", impressumRouter);
-app.use("/files", filesRouter);
+//app.use("/files", filesRouter);
 
 
 // catch 404 and forward to error handler
