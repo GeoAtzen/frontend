@@ -59,6 +59,7 @@ block content
   br
   h1 Anwendungsseite
   p Auf der Anwendungsseite finden Sie einen Bereich zum Datenupload. Sie können entweder Trainingsdaten, ein trainiertes Modell oder eine Sentinel 2 Bilddatei hochladen. Außerdem können Sie hier verschiedene Parameter einstellen und schließlich die Durchführung der AOA-Berechnung, das Trainieren des Algortihmus und das Anzeigen der Bereiche, in denen weitere Trainingsdaten erhoben werden müssen, starten.
+
   .row.justify-content-md-left
         .col-lg-6.col-xs-12.mb-3
             .card.text-dark.p-4.border-success.cardanwendungsmap
@@ -73,10 +74,12 @@ block content
               form(method='post', enctype='multipart/form-data', action='/uploadsentinel')
                 input(type='file', name='file')
                 input(type='submit', value='Submit')
+
               a   2.2 Trainingsdaten
-              form(method='post', enctype='multipart/form-data', action='/uploadtrain')
+              form(method='post', enctype='multipart/form-data', action='/uploadtrain' )
                 input(type='file', name='file')
                 input(type='submit', value='Submit')
+
               a   2.3 trainiertes Modell
               form(method='post', enctype='multipart/form-data', action='/uploadmodel')
                 input(type='file', name='file')
@@ -100,8 +103,15 @@ block content
                       label.form-check-label(for='flexRadioDefault20m')
                         | 30 Meter
               p 4. Beim Klicken des Ausführen Buttons wird das Training, die Prediction, die AOA und die Ermittlung der empfolenen Gebiete, welche nachtrainiert werden müssen, ausgeführt. 
-              form(method='post', action='/anwendungsseite/ergebnisseite')
-                button.btn.btn-success() Ausführen
+              
+              form(method='post', action='/anwendungsseite/ergebnisseitemodel')
+                button.btn.btn-success() Ausführen mit trainiertem Modell
+              br
+              form(method='post', action='/anwendungsseite/ergebnisseitegpkg')
+                button.btn.btn-success() Ausführen mit geoPackage Trainingsdaten
+              br
+              form(method='post', action='/anwendungsseite/ergebnisseiteshape')
+                button.btn.btn-success() Ausführen mit Shapefile Trainingsdaten
 
   block scripts 
     script(src="/javascripts/application.js")

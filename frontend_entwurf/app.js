@@ -9,7 +9,7 @@ const multer = require("multer");
 
 var app = express();
 
-// Uploading data handler for Sentinel 2 png here
+// Uploading data handler for Sentinel 2 tif here
 
 // error handler
 const handleError = (err, res) => {
@@ -28,6 +28,7 @@ app.post(
   "/uploadsentinel",
   upload.single("file"),
   (req, res) => {
+
     const tempPath = req.file.path;
     const targetPath = path.join(__dirname, "public/uploads/usersentineldata.tif");
 
@@ -36,9 +37,9 @@ app.post(
         if (err) return handleError(err, res);
 
         res
-          .status(200)
-          .contentType("text/plain")
-          .end("File uploaded!");
+        .status(200)
+        .render("fileupload", { title: "Fileupload" });
+
       });
     } else {
       fs.unlink(tempPath, err => {
@@ -46,28 +47,29 @@ app.post(
 
         res
           .status(403)
-          .contentType("text/plain")
-          .end("Only .png files are allowed!");
+          .render("fileuploaderror", { title: "Uploadfehler" });
+          
       });
     }
   }
 );
+
+// Uploading data handler for trainingsdata here (.gpkg or .shp as .zip)
 
 app.post(
   "/uploadtrain",
   upload.single("file"),
   (req, res) => {
     const tempPath = req.file.path;
-    const targetPath = path.join(__dirname, "public/uploads/usertrainingsdata.gpkg");
+    const targetPath = path.join(__dirname, "public/uploads/usertrainingsdata.zip");
 
-    if (path.extname(req.file.originalname).toLowerCase() === ".gpkg") {
+    if (path.extname(req.file.originalname).toLowerCase() === ".zip") {
       fs.rename(tempPath, targetPath, err => {
         if (err) return handleError(err, res);
 
         res
           .status(200)
-          .contentType("text/plain")
-          .end("File uploaded!");
+          .render("fileupload", { title: "Fileupload" })
       });
     } else {
       fs.unlink(tempPath, err => {
@@ -75,28 +77,28 @@ app.post(
 
         res
           .status(403)
-          .contentType("text/plain")
-          .end("Only .png files are allowed!");
+          .render("fileuploaderror", { title: "Uploadfehler" });
       });
     }
   }
 );
+
+// Uploading data handler for trained model here
 
 app.post(
   "/uploadmodel",
   upload.single("file"),
   (req, res) => {
     const tempPath = req.file.path;
-    const targetPath = path.join(__dirname, "public/uploads/usertrainedmodel.rds");
+    const targetPath = path.join(__dirname, "public/uploads/usertrainedmodel");
 
-    if (path.extname(req.file.originalname).toLowerCase() === ".rds") {
+    if (path.extname(req.file.originalname).toLowerCase() === "") {
       fs.rename(tempPath, targetPath, err => {
         if (err) return handleError(err, res);
 
         res
           .status(200)
-          .contentType("text/plain")
-          .end("File uploaded!");
+          .render("fileupload", { title: "Fileupload" })
       });
     } else {
       fs.unlink(tempPath, err => {
@@ -104,8 +106,7 @@ app.post(
 
         res
           .status(403)
-          .contentType("text/plain")
-          .end("Only .png files are allowed!");
+          .render("fileuploaderror", { title: "Uploadfehler" });
       });
     }
   }
@@ -115,7 +116,6 @@ app.post(
 var startRouter = require("./routes/start");
 app.use("/", startRouter);
 //var ergebnisseiteRouter = require("../ergebnisseite");
-//var filesRouter = require("./routes/files");
 var anwendungsseiteRouter = require("./routes/anwendungsseite");
 var impressumRouter = require("./routes/impressum");
 
@@ -134,7 +134,6 @@ app.use(express.static(path.join(__dirname, "public")));
 //app.use("/ergebnisseite", ergebnisseiteRouter);
 app.use("/anwendungsseite", anwendungsseiteRouter);
 app.use("/impressum", impressumRouter);
-//app.use("/files", filesRouter);
 
 
 // catch 404 and forward to error handler
