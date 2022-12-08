@@ -6,6 +6,7 @@ var logger = require("morgan");
 const fs = require("fs");
 const http = require("http");
 const multer = require("multer");
+const decompress = require("decompress");
 
 var app = express();
 
@@ -57,7 +58,7 @@ app.post(
 // Uploading data handler for trainingsdata here (.gpkg or .shp as .zip)
 
 app.post(
-  "/uploadtrain",
+  "/uploadtrainingsdata",
   upload.single("file"),
   (req, res) => {
     const tempPath = req.file.path;
@@ -80,11 +81,21 @@ app.post(
           .render("fileuploaderror", { title: "Uploadfehler" });
       });
     }
+    try {
+const files = decompress("./public/uploads/usertrainingsdata.zip", "./public/uploads", {
+         map: file => {
+             file.path = `usertrainingspolygone.gpkg`;
+             return file;
+         }
+     });
+     console.log("done!");
+ } catch (error) {
+    console.log(error);
+}
   }
 );
 
 // Uploading data handler for trained model here
-
 app.post(
   "/uploadmodel",
   upload.single("file"),
@@ -112,6 +123,9 @@ app.post(
   }
 );
 
+app.post("/anwendungsseite", function (req, res, next) {
+  res.render("anwendungsseite", { title: "Anwendungsseite" });
+});
 
 var startRouter = require("./routes/start");
 app.use("/", startRouter);
@@ -151,5 +165,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+
 
 module.exports = app;
