@@ -4,9 +4,8 @@
 
 var map = L.map("anwendungsmap").setView([52, 7.8], 12);
 
-L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-  attribution:
-    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
 }).addTo(map);
 
 //drawcontrol variables
@@ -44,14 +43,64 @@ map.on("draw:deleted", function (e) {
 });
 })
 
+// geht nicht da .tif statt .png
+var imageUrl = '/uploads/usersentineldata.tif',
+imageBounds = [[51.5, 7], [52, 7.5]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
 // Anzeigen der hochgeladenen Shapefile
-var shpfile = new L.Shapefile("/uploads/usertrainingsdata.zip");
-shpfile.addTo(map);
+var usershapefile = new L.Shapefile("/uploads/usertrainingsdata.zip", {
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style: function(feature) {
+            return {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: "orange"
+            }
+        }
+      });
 
 // Anzeigen des hochgeladenen geopackages
 // Anmerkung: Layer MUSS layer1 heißen
-var polygons = new L.geoPackageFeatureLayer([], {
+var usergeopackage = new L.geoPackageFeatureLayer([], {
      geoPackageUrl: '/uploads/usertrainingspolygone.gpkg',
      layerName: 'layer1',
-     style: {color: 'green'}
-}).addTo(map);
+     onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(Object.keys(feature.properties).map(function(k) {
+                    return k + ": " + feature.properties[k];
+                }).join("<br />"), {
+                    maxHeight: 200
+                });
+            }
+        },
+        style: function(feature) {
+            return {
+                opacity: 1,
+                fillOpacity: 0.7,
+                radius: 6,
+                color: "green"
+            }
+        }
+      });
+
+// Layer Control
+var baseMaps = {
+    "OpenStreetMap": osm
+};
+
+var overlayMaps = {
+    "Shapefile": usershapefile,
+    "Geopackage": usergeopackage,
+};
+
+var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
